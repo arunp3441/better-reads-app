@@ -14,8 +14,6 @@ public class BookController {
     @Autowired
     private BookRepository bookRepository;
 
-    private final String COVER_IMAGE_ROOT = "https://covers.openlibrary.org/b/id/";
-
     @GetMapping(value="/books/{bookId}")
     private String getBook(@PathVariable String bookId, Model model){
         Optional<Book> optionalBook = bookRepository.findById(bookId);
@@ -23,7 +21,7 @@ public class BookController {
             Book book = optionalBook.get();
             String coverImage = "/images/no-images.jpg";
             if(book.getCoverIds() != null && !book.getCoverIds().isEmpty()){
-                coverImage = COVER_IMAGE_ROOT+book.getCoverIds().get(0)+"-L.jpg";
+                coverImage = "https://covers.openlibrary.org/b/id/" + book.getCoverIds().get(0) + "-L.jpg";
             }
             model.addAttribute("coverImage",coverImage);
             model.addAttribute("book",book);

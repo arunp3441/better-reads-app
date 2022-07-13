@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Book Details</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width" />
+    <base href="/" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+</head>
+<body>
+    <div class="card">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img th:src="${coverImage}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title display-1" th:text="${book.name}"></h5>
+                    <p class="card-text display-5" th:text="${book.authorNames}"></p>
+                    <p class="card-text" th:text="${book.description}"></p>
+                    <p class="card-text">Published Date:<small th:text="${book.publishedDate}" class="text-muted"></small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
